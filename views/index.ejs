@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="./assets/css/index.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<title>Pets Connect</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body onload="typeWriter()">
+	<%- include("partials/nav") %>;
+	
+	<div class="fullscreen-bg">
+		<video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+		    	<source src="assets/general/Pexels Videos 2912.mp4" type="video/mp4">
+	    </video>
+	</div>
+	<div class="contents">
+		<div class="intro">
+			Welcome to Pets Connect.
+		</div>
+
+		<p id="typing-text">
+		</p>
+
+		<a id="signUpText" href="/register">
+		</a>
+	</div>
+	<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/materialize.min.js"></script>
+	<script type="text/javascript" src="./assets/js/petlinks.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".sidenav").sidenav();
+            $(".tooltipped").tooltip({
+                exitDelay: 0
+            });
+		})
+		var i = 0;
+		var txt = 'Pets Connect is a networking site that lets pet owners meet other pets.';
+		var signUpText = "Sign up now!"
+		var speed = 25;
+
+		function typeWriter() {
+			if (i < txt.length) {
+				document.getElementById("typing-text").innerHTML += txt.charAt(i);
+				i++;
+				setTimeout(typeWriter, speed);
+			} else {
+				cleari();
+				setTimeout(signUpType, 500);
+			}
+		}
+
+		function cleari() {
+			i = 0;
+		}
+
+
+		function signUpType() {
+			if (i < signUpText.length) {
+				document.getElementById("signUpText").innerHTML += signUpText.charAt(i);
+				i++;
+				setTimeout(signUpType, speed);
+			}
+		}
+	</script>
+
+</body>
+
+</html>

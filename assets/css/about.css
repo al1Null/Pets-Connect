@@ -1,0 +1,16 @@
+body{
+	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwm89gZEyxNRJiVb7m9CwWm2ucz2H2POcNfKu-qF52DyyNYhMYuQ");
+	height: 100%;
+}
+
+.sideimg{
+	float: right;
+	height: 30%;
+	width: 20%;
+	left: 120px;
+}
+p{
+	color: black;
+	font-size: 20px;
+	font-family: sans-serif;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!---<link rel="stylesheet" href="./assets/css/about.css">--->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<title>About</title>
+	</head>
+	<body>
+        <%- include("partials/nav") %>
+        <div class="card" style="margin: 8px;">
+            <div class="card-header purple darken-3 white-text z-depth-2" style="height: 64px;">
+                <h5 class="title" style="font-family: 'Roboto'; position: relative; top: 30%;font-weight: 300; padding: 8px">
+                    ABOUT US
+                </h5>
+            </div>
+            <div class="card-content">
+                <p>Welcome to Pet Connect! We hope to create a platform to help people socialize and meet other owners. We also hope to be able to help animals across the world be adopted from animal shelters.</p>
+                <br>
+                <p>
+                    This website allows you to register any of your pets and create a profile for them. After registering you pet(s), we will generate a QR code for you, which you can let others scan so they get to know your pet better!
+                </p>
+                <br>
+                <p>Not only can you show off your wonderful pets, you can also check out the other pets' profiles. If you are looking for more information about a future pet and lifelong companion, use Pet Connect</p>
+            </div>
+        </div>
+		<!-- <img src="https://wallpapercave.com/wp/8M13gdt.jpg"/> -->
+		
+		<div class="card" style="margin: 8px;">
+            <div class="card-header orange darken-3 white-text z-depth-2" style="height: 64px;">
+                <h5 class="title" style="font-family: 'Roboto'; position: relative; top: 30%; font-weight: 300; padding: 8px;">
+                    CONTACT INFORMATION
+                </h5>
+            </div>
+            <div class="card-content">
+                <b>Phone: <span style="font-family: 'Roboto'; font-weight: lighter;">123-456-7890</span></b><br>
+                <b>Email: <span style="font-family: 'Roboto'; font-weight: lighter;">support@petsconnect.net</span></b>
+            </div>
+        </div>
+		
+        <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/assets/js/materialize.min.js"></script>
+        <script type="text/javascript">
+            $(".sidenav").sidenav();
+            $(".tooltipped").tooltip({
+                exitDelay: 0
+            });
+        </script>
+	</body>
+</html>

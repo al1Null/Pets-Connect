@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Register</title>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        
+	</head>
+	
+	<body>
+        <%- include("partials/nav") %>
+		<div class="card" style="margin: 64px;">
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field">
+						<label for="petName">Pet Name: </label>
+						<input placeholder="Name" name="pet_name" type="text"/>
+					</div>
+					<div class="input-field">
+						<label for="petName">Pet Name: </label>
+						<input placeholder="Name" name="pet_name" type="text"/>
+					</div>
+					<div class="input-field">
+						<label for="petName">Pet Name: </label>
+						<input placeholder="Name" name="pet_name" type="text"/>
+					</div>
+					<div class="input-field">
+						<label for="petName">Pet Name: </label>
+						<input placeholder="Name" name="pet_name" type="text"/>
+					</div>
+					<div class="input-field">
+						<label for="petName">Pet Name: </label>
+						<input placeholder="Name" name="pet_name" type="text"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./assets/js/materialize.min.js"></script>
+		<script src="./assets/js/jquery.min.js"></script>
+		<script src="./assets/js/petlinks.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+                $(".sidenav").sidenav();
+				$('input#input_text, textarea#textarea2').characterCounter();
+			});
+			
+			checkLoggedIn();
+
+			 $(document).ready(function() {
+			M.updateTextFields();
+		  });
+
+			$("#registerPet").on("click", function(){
+        
+
+            
+			let petName = $("#").val(),
+				petType = $("#pet_name").val(),
+				petBreed = $("input[name='pet_breed']").val(),
+				petAge = $("input[name='pet_age']").val(),
+				petLikes = $("input[name='pet_likes']").val(),
+				petDislikes = $("input[name='pet_dislikes']").val();
+				
+				console.log(petName);
+				console.log(petType);
+			let pet_json_data = {
+				name: petName,
+				type: petType,
+				breed: petBreed,
+				age: petAge,
+				likes: petLikes.split(","),
+				dislikes: petDislikes.split(",")
+			};
+
+			$.post({
+				url: "/api/add_pet",
+				data: {
+					//pet_id: petId,
+					pet_data: JSON.stringify(pet_json_data)
+				},
+				success: function(data){
+					console.log(data);
+				}
+			})
+		});
+		</script>
+	</body
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Pets Connect - Login</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    </head>
+    
+    <body>
+        <%- include("partials/nav") %>
+        <div class="row">
+            <div class="col s12 l4 offset-l4">
+                <div class="card purple darken-3 white-text">
+                    <div class="card-content">
+                        <h4 class="card-title center-align">Account Login</h4>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">email</i>
+                                    <input type="text" id="username_login" class="validate" />
+                                    <label for="username_login">Account Username</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">vpn_key</i>
+                                    <input type="password" id="password_login" class="validate" />
+                                    <label for="password_login">Password</label>
+                                </div>
+                            </div>
+                            <div class="row center-align">
+                                <button class="btn waves-effect waves-light" id="button_login">Login
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="./assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
+        <script type="text/javascript" src="./assets/js/petlinks.js"></script>
+        <script type="text/javascript">
+            $(".sidenav").sidenav();
+            checkLoggedIn();
+
+            $("#button_login").on("click", function(){
+                let username = $("#username_login").val(),
+                    password = $("#password_login").val();
+
+                $.post({
+                    url: "/login",
+                    data: {username: username, password: password},
+                    success: function(data) {
+                        let user_package = {
+                            username: data.username,
+                            loggedIn: data.loggedIn
+                        };
+
+                        if (data.type == "success") {
+                            sessionStorage.setItem("userData", JSON.stringify(user_package));
+                            window.location.href = "/dashboard";
+                        } else {
+                            alert(data.message);
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
